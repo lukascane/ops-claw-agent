@@ -1,5 +1,20 @@
 # OpsClaw: Agentic RAG & Infrastructure Tool-Calling Demo
 
+┌───────────────┐     1. User Query      ┌─────────────────────────┐
+ │               │ ──────────────────────>│                         │
+ │  Developer /  │                        │     OpsClaw Agent       │
+ │   On-Call     │ <───────────────────── │  (NVIDIA NIM / OpenAI)  │
+ │               │     Grounded Answer    └───────────┬─────────────┘
+ └───────────────/                                    │
+                                           2. Tool-Calling Loop
+                                                      │
+                       ┌──────────────────────────────┼──────────────────────────────┐
+                       ▼                              ▼                              ▼
+             ┌──────────────────┐           ┌──────────────────┐           ┌──────────────────┐
+             │ search_runbooks  │           │check_queue_metrics│          │trigger_remediation│
+             │   (Hybrid RAG)   │           │ (Redis / BullMQ) │           │  (Auto-Scale)    │
+             └──────────────────┘           └──────────────────┘           └──────────────────┘
+
 An event-driven AI Reliability & Operations Agent built with **Python**, **OpenAI-compatible Tool Calling (NVIDIA NIM / Nebius / OpenAI)**, **Hybrid RAG Runbook Retrieval**, and an **Automated Evaluation Harness**.
 
 Built to demonstrate production AI engineering patterns: connecting LLMs to real-time backend telemetry (BullMQ/Redis, OAuth2 services), grounding decisions in technical runbooks via RAG, and verifying agent behavior with deterministic `pytest` and evaluation metrics.
@@ -21,4 +36,6 @@ Built to demonstrate production AI engineering patterns: connecting LLMs to real
 
 ## Author
 
-**Łukasz Trzciński** — AI & Backend Software Engineer (Berlin, Germany)
+**Lukas Cane** — AI & Backend Software Engineer (Berlin, Germany)
+
+
