@@ -31,29 +31,26 @@
              │ search_runbooks  │           │check_queue_metrics│          │trigger_remediation│
              │   (Hybrid RAG)   │           │ (Redis / BullMQ) │           │  (Auto-Scale)    │
              └──────────────────┘           └──────────────────┘           └──────────────────┘
-## 🌟 Key Engineering Highlights
 
-* **Multi-Step Tool-Calling Orchestration:** Autonomous execution loop (`OpsClawAgent`) that chains telemetry inspection (`check_queue_metrics`), RAG knowledge retrieval (`search_runbooks`), and safe remediation dispatch (`trigger_remediation`).
-* **Drop-In NVIDIA NIM & Open-Weight Compatibility:** Uses the standard OpenAI SDK interface pointed at `https://integrate.api.nvidia.com/v1` (`meta/llama-3.3-70b-instruct`) or OpenAI (`gpt-4o-mini`), plus a zero-dependency **Deterministic Simulation Mode** for instant local testing without API credit barriers.
-* **Rigorous Evaluation Harness (`evals.py`):** Quantitative benchmark measuring **Tool Selection Recall**, **Answer Groundedness / Faithfulness**, and **End-to-End Latency** across multi-hop operational scenarios.
-* **Production Microservice Ready:** Packaged with **FastAPI** (`/v1/agent/query`, `/health`, OpenAPI `/docs`) and a lightweight **Dockerfile**.
 
----
 
-## 📊 Evaluation Benchmark Results
+🌟 Key Engineering Highlights
+Multi-Step Tool-Calling Orchestration: Autonomous execution loop (OpsClawAgent) that chains telemetry inspection (check_queue_metrics), RAG knowledge retrieval (search_runbooks), and safe remediation dispatch (trigger_remediation).
 
-| Test Scenario | Tool Recall | Groundedness | Latency | Status |
-| --- | --- | --- | --- | --- |
-| `eval-01-queue-remediation` | 100% | 100% | < 5 ms | **PASS** |
-| `eval-02-oauth-diagnostics` | 100% | 100% | < 5 ms | **PASS** |
-| `eval-03-nim-pgvector-rag` | 100% | 100% | < 5 ms | **PASS** |
-| **Aggregate Score** | **100.0%** | **100.0%** | — | **EXCELLENT** |
+Drop-In NVIDIA NIM & Open-Weight Compatibility: Uses the standard OpenAI SDK interface pointed at https://integrate.api.nvidia.com/v1 (meta/llama-3.3-70b-instruct) or OpenAI (gpt-4o-mini), plus a zero-dependency Deterministic Simulation Mode for instant local testing without API credit barriers.
 
----
+Rigorous Evaluation Harness (evals.py): Quantitative benchmark measuring Tool Selection Recall, Answer Groundedness / Faithfulness, and End-to-End Latency across multi-hop operational scenarios.
 
-## 🚀 Quickstart & Installation
+Production Microservice Ready: Packaged with FastAPI (/v1/agent/query, /health, OpenAPI /docs) and a lightweight Dockerfile.
 
-```bash
+📊 Evaluation Benchmark Results
+Test Scenario	Tool Recall	Groundedness	Latency	Status
+eval-01-queue-remediation	100%	100%	< 5 ms	PASS
+eval-02-oauth-diagnostics	100%	100%	< 5 ms	PASS
+eval-03-nim-pgvector-rag	100%	100%	< 5 ms	PASS
+Aggregate Score	100.0%	100.0%	—	EXCELLENT
+🚀 Quickstart & Installation
+Bash
 # Clone the repository
 git clone [https://github.com/lukascane/ops-claw-agent.git](https://github.com/lukascane/ops-claw-agent.git)
 cd ops-claw-agent
@@ -73,17 +70,12 @@ python evals.py
 
 # 3. Launch the FastAPI server (Swagger UI at http://localhost:8000/docs)
 uvicorn server:app --reload --port 8000
+👤 Author
+Lukas Cane (Łukasz Trzciński) — AI & Backend Software Engineer (Berlin, Germany)
 
-```
+Focus: Agentic Workflows, Event-Driven RAG Pipelines, OAuth2 Integrations, and Cloud Infrastructure.
+EOF
 
----
-
-## 👤 Author
-
-**Lukas Cane** — AI & Backend Software Engineer 
-
-*Focus: Agentic Workflows, Event-Driven RAG Pipelines, OAuth2 Integrations, and Cloud Infrastructure.*
-
-```
-
-```
+git add README.md
+git commit -m "docs: reformat README with correct GFM spacing and layout"
+git push origin main
