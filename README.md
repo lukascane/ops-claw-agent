@@ -1,5 +1,3 @@
-
-```markdown
 <div align="center">
 
 # 🐾 OpsClaw: Agentic RAG & Infrastructure Tool-Calling Demo
@@ -33,11 +31,6 @@
              │ search_runbooks  │           │check_queue_metrics│          │trigger_remediation│
              │   (Hybrid RAG)   │           │ (Redis / BullMQ) │           │  (Auto-Scale)    │
              └──────────────────┘           └──────────────────┘           └──────────────────┘
-
-```
-
----
-
 ## 🌟 Key Engineering Highlights
 
 * **Multi-Step Tool-Calling Orchestration:** Autonomous execution loop (`OpsClawAgent`) that chains telemetry inspection (`check_queue_metrics`), RAG knowledge retrieval (`search_runbooks`), and safe remediation dispatch (`trigger_remediation`).
