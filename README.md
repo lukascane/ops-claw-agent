@@ -34,9 +34,8 @@ cat << 'EOF' > README.md
              └──────────────────┘           └──────────────────┘           └──────────────────┘
 
 
-
 # Clone the repository
-git clone https://github.com/lukascane/ops-claw-agent.git
+git clone [https://github.com/lukascane/ops-claw-agent.git](https://github.com/lukascane/ops-claw-agent.git)
 cd ops-claw-agent
 
 # Set up virtual environment
